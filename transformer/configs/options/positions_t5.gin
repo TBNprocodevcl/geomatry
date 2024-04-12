@@ -1,0 +1,10 @@
+
+from transformer import decoder_stack
+from transformer import transformer_layer 
+
+transformer_layer.TransformerLayer:
+  relative_position_type = "t5"
+
+decoder_stack.DecoderStack:
+  use_absolute_positions = False
+
