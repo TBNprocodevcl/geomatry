@@ -32,7 +32,7 @@ import problem as pr
 
 _GIN_SEARCH_PATHS = flags.DEFINE_list(
     'gin_search_paths',
-    ['third_party/py/meliad/transformer/configs'],
+    ['./transformer/configs'],
     'List of paths where the Gin config files are located.',
 )
 _GIN_FILE = flags.DEFINE_multi_string(
