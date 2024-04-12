@@ -20,7 +20,7 @@ from absl import logging
 import gin
 import jax
 
-import  training_loop
+from transformer import  training_loop
 from transformer import decoder_stack
 from transformer import models
 from transformer import tasks  # pylint: disable=unused-import

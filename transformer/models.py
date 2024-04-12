@@ -22,7 +22,7 @@ from flax.training import common_utils
 import gin
 import jax
 import jax.numpy as jnp
-import  metrics_summary
+from transformer import  metrics_summary
 from transformer import decoder_stack
 from transformer import metric_utils
 from transformer import text_dataset
