@@ -365,7 +365,8 @@ def beam_search_flat(
     # Did any of these sequences reach an end marker?
     # --> [batch, 2*beams]
     last_token = topk_seq[:, :, state.cur_index + 1]
-    last_token = jax.nn.one_hot(last_token, vocab_size, dtype=jnp.bfloat16)
+    # last_token = jax.nn.one_hot(last_token, vocab_size, dtype=jnp.bfloat16)
+    last_token = jax.nn.one_hot(last_token, vocab_size, dtype=jnp.float32)
 
     # any([batch, 2b, vocab] * [1, 1, vocab], axis=-1) == [batch, 2b]
     newly_finished = jnp.any(last_token * eos, axis=-1)

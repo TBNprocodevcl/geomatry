@@ -271,7 +271,8 @@ def _chunking_sparsify(query: Array, key: Array, num_buckets: int,
   """Approximate top k operation for a single head."""
   # q = q_length, f = qk features, d = database_size
   scores = jnp.einsum('qf,df->qd', query, key)
-  mask = (key.sum(-1) == 0).astype(jnp.bfloat16) * -1e6
+  # mask = (key.sum(-1) == 0).astype(jnp.bfloat16) * -1e6
+  mask = (key.sum(-1) == 0).astype(jnp.float32) * -1e6
   scores += mask
 
   num_queries, _ = scores.shape
