@@ -586,8 +586,8 @@ importlib-resources==6.1.0 \
     --hash=sha256:9d48dcccc213325e810fd723e7fbb45ccb39f6cf5c31f00cf2b965f5f10f3cb9 \
     --hash=sha256:aa50258bbfa56d4e33fbd8aa3ef48ded10d1735f11532b8df95388cc6bdb7e83
     # via etils
-# jax==0.4.6 \
-jax==0.4.23 \
+jax==0.4.6 \
+# jax==0.4.23 \
     --hash=sha256:d06ea8fba4ed315ec55110396058cb48c8edb2ab0b412f28c8a123beee9e58ab
     # via
     #   -r requirements.in
@@ -597,8 +597,8 @@ jax==0.4.23 \
     #   optax
     #   seqio
     #   seqio-nightly
-# jaxlib==0.4.6 \
-jaxlib==0.4.23 \
+jaxlib==0.4.6 \
+# jaxlib==0.4.23 \
     --hash=sha256:1393968b0f808c1769195990f1ea138903bc4012bdffb850eecd10e113b8fca8 \
     --hash=sha256:2949b6b6b77f296982b42ad2c6350526baf47b0f105118a65a9e9b2093de6572 \
     --hash=sha256:34b0b4e41e185fba36b81cf68d4979503afba4640bf29b7f6709b17b3c3c55bc \

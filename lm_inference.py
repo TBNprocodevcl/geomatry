@@ -81,7 +81,7 @@ class LanguageModelInference:
     for idx in self.encode_list(['.', ';']):
       eos[idx] = 1
 
-    self.eos = np.array(eos, dtype=np.loat32)
+    self.eos = np.array(eos, dtype=np.float32)
     # self.eos = np.array(eos, dtype=np.bfloat16)
     # self.mask = jax.numpy.ones([1024], dtype=np.bfloat16)
     self.mask = jax.numpy.ones([1024], dtype=np.float32)
