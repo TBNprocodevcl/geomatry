@@ -28,13 +28,13 @@ from scipy import optimize
 class InfQuotientError(Exception):
   pass
 
-
+# tính UCLN
 def _gcd(x: int, y: int) -> int:
   while y:
     x, y = y, x % y
   return x
 
-
+# rut gon 
 def simplify(n: int, d: int) -> tuple[int, int]:
   g = _gcd(n, d)
   return (n // g, d // g)
@@ -86,6 +86,10 @@ def is_zero(e: dict[str, float]) -> bool:
 def strip(e: dict[str, float]) -> dict[str, float]:
   return {v: c for v, c in e.items() if c != 0}
 
+
+#Các hàm plus, plus_all, mult, minus, div, recon, replace: 
+  # Các hàm để thực hiện các phép toán cộng, nhân, trừ, chia giữa các biểu thức, 
+  # cũng như để thay thế biến trong một biểu thức bằng một biểu thức khác.
 
 def plus(e1: dict[str, float], e2: dict[str, float]) -> dict[str, float]:
   e = dict(e1)
@@ -156,6 +160,10 @@ def replace(
   m = e.pop(v0)
   return plus(e, mult(e0, m))
 
+  
+#Các hàm tiện ích comb2, perm2, chain2, update_groups: 
+# Các hàm này hỗ trợ trong việc tạo ra các tổ hợp, hoán vị và chuỗi các phần tử, 
+# cũng như cập nhật các nhóm các phần tử tương đương
 
 def comb2(elems: list[Any]) -> Generator[tuple[Any, Any], None, None]:
   if len(elems) < 1:
@@ -269,6 +277,11 @@ def update_groups(
 
   return groups1, links, history
 
+
+
+#Lớp Table và các phương thức của nó: Đây là lớp cơ sở cho các bảng biểu diễn các phương trình 
+# và phép biến đổi. Các phương thức bao gồm thêm, thay thế, đăng ký các biểu thức, 
+# và xác định lý do các biểu thức đó bằng không
 
 class Table:
   """The coefficient matrix."""
@@ -522,6 +535,9 @@ class Table:
       self.record_eq(v1, v2, v3, v4)
       yield v1, v2, v3, v4, self.why(why_dict)
 
+    
+#Lớp GeometricTable và RatioTable: Đây là các lớp con của lớp Table, 
+# đặc biệt được thiết kế để xử lý việc giải quyết các vấn đề hình học và tỉ lệ.
 
 class GeometricTable(Table):
   """Abstract class representing the coefficient matrix (table) A."""

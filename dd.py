@@ -27,14 +27,14 @@ import numericals as nm
 import problem as pr
 from problem import Dependency, EmptyDependency
 
-
+#tìm điểm giao nhau của các tập hợp điểm
 def intersect1(set1: set[Any], set2: set[Any]) -> Any:
   for x in set1:
     if x in set2:
       return x
   return None
 
-
+#  tìm điểm không phải là điểm đã biết trên một đoạn thẳng
 def diff_point(l: gm.Line, a: gm.Point) -> gm.Point:
   for x in l.neighbors(gm.Point):
     if x != a:
@@ -45,7 +45,8 @@ def diff_point(l: gm.Line, a: gm.Point) -> gm.Point:
 # pylint: disable=protected-access
 # pylint: disable=unused-argument
 
-
+# tìm các cặp điểm thỏa mãn các mối quan hệ tỉ lệ được chỉ định trong định lý 
+# và trả về các cặp điểm mới thỏa mãn mối quan hệ tỉ lệ mới.
 def match_eqratio_eqratio_eqratio(
     g: gh.Graph,
     g_matcher: Callable[str, list[tuple[gm.Point, ...]]],
@@ -92,7 +93,8 @@ def match_eqratio_eqratio_eqratio(
         r, u = g.two_points_of_length(l4)
         yield dict(zip('abcdefmnpqru', [a, b, c, d, e, f, m, n, p, q, r, u]))
 
-
+#tìm các cặp điểm thỏa mãn các góc bằng nhau được chỉ định trong định lý 
+        #và trả về các cặp điểm mới thỏa mãn góc bằng nhau mới.
 def match_eqangle_eqangle_eqangle(
     g: gh.Graph,
     g_matcher: Callable[str, list[tuple[gm.Point, ...]]],
@@ -140,6 +142,7 @@ def match_eqangle_eqangle_eqangle(
         yield dict(zip('abcdefmnpqru', [a, b, c, d, e, f, m, n, p, q, r, u]))
 
 
+# tìm các điểm thỏa mãn các mối quan hệ hình học giữa các đoạn thẳng và góc vuông
 def match_perp_perp_npara_eqangle(
     g: gh.Graph,
     g_matcher: Callable[str, list[tuple[gm.Point, ...]]],
